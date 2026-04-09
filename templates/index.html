@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da PaçocaStore</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+    <header>
+        <h1>PaçocaStore API</h1>
+        <p>Documentação oficial para consumo de dados de produtos.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre a API</h2>
+            <p>Esta API foi criada para fornecer dados de produtos para a construção de projetos de e-commerce. Ela retorna dados no formato JSON.</p>
+            <p><strong>URL Base:</strong> <code>http://localhost:5000</code></p>
+        </section>
+
+        <section>
+            <h2>Endpoints Disponíveis</h2>
+
+            <h3>1. Listar todos os produtos</h3>
+            <p>Retorna a lista completa de produtos cadastrados na loja.</p>
+            <ul>
+                <li><strong>Método:</strong> <code>GET</code></li>
+                <li><strong>Rota:</strong> <code>/api/produtos</code></li>
+            </ul>
+            <p><strong>Exemplo de Resposta (200 OK):</strong></p>
+            <pre><code>[
+  {
+    "id": 1,
+    "nome": "Smartphone Galaxy S23",
+    "preco": 3500.0,
+    "categoria": "eletronicos",
+    "descricao": "Smartphone de última geração...",
+    "imagem": "https://placehold.co/400"
+  }
+]</code></pre>
+
+            <hr>
+
+            <h3>2. Filtrar produtos por categoria</h3>
+            <p>Você pode filtrar os produtos passando o parâmetro <code>categoria</code> na URL (Query Parameter).<br>
+            <em>Categorias disponíveis: eletronicos, eletrodomesticos, roupas, livros, diversos.</em></p>
+            <ul>
+                <li><strong>Método:</strong> <code>GET</code></li>
+                <li><strong>Rota:</strong> <code>/api/produtos?categoria=nome_da_categoria</code></li>
+                <li><strong>Exemplo de Requisição:</strong> <code>/api/produtos?categoria=eletronicos</code></li>
+            </ul>
+
+            <hr>
+
+            <h3>3. Buscar um produto específico pelo ID</h3>
+            <p>Retorna os detalhes de um único produto com base no seu número de identificação (ID). Útil para criar a página de "Detalhes do Produto".</p>
+            <ul>
+                <li><strong>Método:</strong> <code>GET</code></li>
+                <li><strong>Rota:</strong> <code>/api/produtos/{id}</code></li>
+                <li><strong>Exemplo de Requisição:</strong> <code>/api/produtos/3</code></li>
+            </ul>
+            <p><strong>Exemplo de Resposta (200 OK):</strong></p>
+            <pre><code>{
+  "id": 3,
+  "nome": "Camiseta Algodão Básica",
+  "preco": 49.9,
+  "categoria": "roupas",
+  "descricao": "Camiseta 100% algodão, cor preta, tamanho M.",
+  "imagem": "https://placehold.co/400"
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Criado por <a href="https://github.com/NouanGust">Nohan Gustavo</a> para fins educacionais.</p>
+    </footer>
+</body>
+</html>
